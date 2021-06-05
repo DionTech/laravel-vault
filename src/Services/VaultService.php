@@ -7,6 +7,7 @@ namespace DionTech\Vault\Services;
 use DionTech\Vault\Exceptions\VaultSecretNotExists;
 use DionTech\Vault\Models\Secret;
 use DionTech\Vault\Models\Vault;
+use DionTech\Vault\Support\Contracts\KeyServiceContract;
 use DionTech\Vault\Support\Contracts\VaultServiceContract;
 use Illuminate\Encryption\Encrypter;
 
@@ -16,7 +17,10 @@ class VaultService implements VaultServiceContract
 
     public function __construct(string $key)
     {
-        $this->encrypter = new Encrypter($key, config('app.cipher', 'AES-256-CBC'));
+        $this->encrypter = new Encrypter(
+            app()->make(KeyServiceContract::class)->getKey($key),
+            config('app.cipher', 'AES-256-CBC')
+        );
     }
 
     public function addSecret(Vault $vault, string $alias, string $value)
@@ -35,6 +39,6 @@ class VaultService implements VaultServiceContract
             throw new VaultSecretNotExists($alias . ' not exists at ' . $vault->name);
         }
 
-        return $this->encrypter-decrypt($secret->value);
+        return $this->encrypter->decrypt($secret->value);
     }
 }

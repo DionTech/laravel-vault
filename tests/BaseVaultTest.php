@@ -51,5 +51,32 @@ class BaseVaultTest extends TestCase
         $this->assertDatabaseMissing('secrets',[
             'value' => 'sensible value'
         ]);
+
+        $this->assertEquals('sensible value', $service->getSecret($vault, 'new secret'));
+    }
+
+    public function test_with_a_really_random_password_like_key()
+    {
+        $vault = Vault::create([
+            'name' => 'AppVault'
+        ]);
+
+        //testing with a really bad password :)
+        $service = $this->app->makeWith(VaultServiceContract::class, ['key' => '12345678']);
+
+        $service->addSecret($vault, 'bad_password_storing_itself', '12345678');
+
+        $this->assertEquals(1, $vault->fresh()->secrets()->count());
+
+        $this->assertDatabaseHas('secrets', [
+            'vault_id' => $vault->id,
+            'alias' => 'bad_password_storing_itself'
+        ]);
+
+        $this->assertDatabaseMissing('secrets',[
+            'value' => '12345678'
+        ]);
+
+        $this->assertEquals('12345678', $service->getSecret($vault, 'bad_password_storing_itself'));
     }
 }
