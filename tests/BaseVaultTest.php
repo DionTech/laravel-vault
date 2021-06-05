@@ -79,7 +79,10 @@ class BaseVaultTest extends TestCase
         ]);
 
         $this->assertEquals('12345678', $service->getSecret($vault, 'bad_password_storing_itself'));
+    }
 
+    public function test_relation()
+    {
         $user = User::factory()->create();
         $user->vaults()->create([
             'name' => 'personal'
@@ -88,6 +91,5 @@ class BaseVaultTest extends TestCase
         $this->assertEquals(1, $user->vaults()->count());
         $this->assertEquals('personal', $user->vaults->first()->name);
     }
-
 
 }
