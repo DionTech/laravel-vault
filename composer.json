@@ -1,0 +1,33 @@
+{
+    "name": "diontech/laravel-vault",
+    "description": "",
+    "authors": [
+        {
+            "name": "Daniel Koch",
+            "email": "daniel.koch@diontech.de"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "DionTech\\Vault\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DionTech\\Vault\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DionTech\\Vault\\VaultServiceProvider"
+            ]
+        }
+    }
+}
