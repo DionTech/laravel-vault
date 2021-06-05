@@ -68,3 +68,11 @@ app()->makeWith(\DionTech\Vault\Support\Contracts\VaultServiceContract::class, [
     'key' => "key-setted-by-user" 
 ])->addSecret($user->vaults->first(), "AN_API_KEY", "this-is-the-sensible-value");
 ```
+
+
+#changing the KeyService hash alogorithm
+
+You can publish the config file - after that, you can change the algo at config/vault.php; default is set to sha512.
+Supported are listed at https://www.php.net/manual/de/function.hash-hmac-algos.php.
+
+

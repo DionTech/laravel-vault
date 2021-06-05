@@ -11,7 +11,7 @@ class KeyService implements KeyServiceContract
 {
     public function getKey(string $value): string
     {
-        $hashed = md5($value);
+        $hashed = hash(config('vault.keyService.hashAlgo', 'sha512'), $value);
 
         $strLen = $this->getStrLen();
 
