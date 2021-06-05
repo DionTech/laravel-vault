@@ -14,7 +14,9 @@ class KeyServiceTest extends TestCase
         $values = [
             'irgendwas',
             'something that might be a little bit longer then running in 32 signs',
-            'foobarme'
+            'foobarme',
+            'i',
+            ''
         ];
 
         $keyGenerator = $this->app->make(KeyServiceContract::class);
@@ -23,15 +25,20 @@ class KeyServiceTest extends TestCase
 
         foreach ($values as $value) {
             $this->assertEquals($keyGenerator->getKey($value), $keyGenerator->getKey($value));
-            $this->assertEquals(32, $keyGenerator->getKey($value));
+            $this->assertEquals(32, strlen($keyGenerator->getKey($value)));
         }
-
 
         config(['app.cipher' => 'AES-128-CBC']);
 
         foreach ($values as $value) {
             $this->assertEquals($keyGenerator->getKey($value), $keyGenerator->getKey($value));
-            $this->assertEquals(16, $keyGenerator->getKey($value));
+            $this->assertEquals(16, strlen($keyGenerator->getKey($value)));
         }
+
+        //test the function edge case fill string
+        $value = 'i';
+        $this->assertEquals(32, strlen($keyGenerator->fillString($value, 32)));
+
+        $this->assertEquals(16, strlen($keyGenerator->fillString($value, 16)));
     }
 }
