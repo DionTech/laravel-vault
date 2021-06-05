@@ -15,12 +15,12 @@ class CreateVault extends Migration
     {
         Schema::create('vaults', function (Blueprint $table) {
             $table->id();
-            $table->string('model_type')->nullable()->index();
-            $table->unsignedBigInteger('model_id')->nullable()->index();
+            $table->string('vaultable_type')->nullable()->index();
+            $table->unsignedBigInteger('vaultable_id')->nullable()->index();
             $table->string('name');
             $table->timestamps();
 
-            $table->index(['model_type', 'model_id']);
+            $table->index(['vaultable_type', 'vaultable_id']);
         });
     }
 

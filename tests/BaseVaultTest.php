@@ -4,6 +4,7 @@
 namespace DionTech\Vault\Tests;
 
 
+use App\Models\User;
 use DionTech\Vault\Models\Secret;
 use DionTech\Vault\Models\Vault;
 use DionTech\Vault\Support\Contracts\VaultServiceContract;
@@ -78,5 +79,15 @@ class BaseVaultTest extends TestCase
         ]);
 
         $this->assertEquals('12345678', $service->getSecret($vault, 'bad_password_storing_itself'));
+
+        $user = User::factory()->create();
+        $user->vaults()->create([
+            'name' => 'personal'
+        ]);
+
+        $this->assertEquals(1, $user->vaults()->count());
+        $this->assertEquals('personal', $user->vaults->first()->name);
     }
+
+
 }
