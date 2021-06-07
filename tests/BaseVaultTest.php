@@ -90,6 +90,21 @@ class BaseVaultTest extends TestCase
 
         $this->assertEquals(1, $user->vaults()->count());
         $this->assertEquals('personal', $user->vaults->first()->name);
+
+        $user->vaults->first()->open()->add('bad_password_storing_itself', '12345678');
+
+        $this->assertEquals(1, $user->vaults()->first()->secrets()->count());
+
+        $this->assertDatabaseHas('secrets', [
+            'vault_id' => $user->vaults()->first()->id,
+            'alias' => 'bad_password_storing_itself'
+        ]);
+
+        $this->assertDatabaseMissing('secrets',[
+            'value' => '12345678'
+        ]);
+
+        $this->assertEquals('12345678', $user->vaults()->first()->open()->get('bad_password_storing_itself'));
     }
 
 }

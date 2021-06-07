@@ -4,6 +4,7 @@
 namespace DionTech\Vault\Models;
 
 
+use DionTech\Vault\Support\Manager\VaultManager;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -20,5 +21,10 @@ class Vault extends Model
     public function vaultable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function open(): VaultManager
+    {
+        return (new VaultManager())->open($this);
     }
 }

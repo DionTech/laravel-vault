@@ -28,16 +28,25 @@ $vault = \DionTech\Vault\Models\Vault::create([
     'name' => 'application vault'
 ]);
 
-//adding a secret
-app()->makeWith(\DionTech\Vault\Support\Contracts\VaultServiceContract::class, [
-    'key' => "DO NOT FORGET THIS KEY OR DATA CANNOT BE DECRYPTED LATER" 
-])->addSecret($vault, "AN_API_KEY", "this-is-the-sensible-value");
+//use default APP_KEY, adding secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->add("facaded_secret", "AN_API_KEY");
+
+//use default APP_KEY, overwrite secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->overwrite("facaded_secret", "AN_API_KEY_overwritten");
+
+//use default APP_KEY, get secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->get("facaded_secret");
 
 
-//getting the secret
-app()->makeWith(\DionTech\Vault\Support\Contracts\VaultServiceContract::class, [
-    'key' => "DO NOT FORGET THIS KEY OR DATA CANNOT BE DECRYPTED LATER" 
-])->getSecret($vault, "AN_API_KEY");
+//use own key, adding secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->useKey("DO_NOT_FORGETT_IT")->add("facaded_secret", "AN_API_KEY");
+
+//use own key, overwrite secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->useKey("DO_NOT_FORGETT_IT")->overwrite("facaded_secret", "AN_API_KEY_overwritten");
+
+//use own key, get secret
+\DionTech\Vault\Support\Facades\Vault::open($vault)->useKey("DO_NOT_FORGETT_IT")->get("facaded_secret");
+
 ```
 
 ```php
@@ -63,10 +72,11 @@ $user->vaults()->create([
     'name' => 'personal'
 ]);
 
-//adding a secret
-app()->makeWith(\DionTech\Vault\Support\Contracts\VaultServiceContract::class, [
-    'key' => "key-setted-by-user" 
-])->addSecret($user->vaults->first(), "AN_API_KEY", "this-is-the-sensible-value");
+//now you will have access to the methods like using a facade when you will use the related model based vaults(), starting with open()
+
+$user->vaults()->first()->add("AN_API_KEY", "this-is-the-sensible-value");
+$user->vaults()->first()->overwrite("AN_API_KEY", "this-is-the-sensible-value-overwritten");
+$user->vaults()->first()->get("AN_API_KEY");
 ```
 
 
