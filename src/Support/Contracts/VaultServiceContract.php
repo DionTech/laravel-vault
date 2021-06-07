@@ -13,4 +13,6 @@ interface VaultServiceContract
     public function addSecret(Vault $vault, string $alias, string $value);
 
     public function getSecret(Vault $vault, string $alias): string;
+
+    public function overwriteSecret(Vault $vault, string $alias, string $value);
 }

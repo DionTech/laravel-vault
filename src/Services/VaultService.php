@@ -31,7 +31,29 @@ class VaultService implements VaultServiceContract
         ]);
     }
 
+    public function overwriteSecret(Vault $vault, string $alias, string $value)
+    {
+        $secret = $this->getSecretModel($vault, $alias);
+
+        $secret->update([
+            'value' => $this->encrypter->encrypt($value)
+        ]);
+    }
+
     public function getSecret(Vault $vault, string $alias): string
+    {
+        $secret = $this->getSecretModel($vault, $alias);
+
+        return $this->encrypter->decrypt($secret->value);
+    }
+
+    /**
+     * @param Vault $vault
+     * @param string $alias
+     * @return Secret
+     * @throws VaultSecretNotExists
+     */
+    protected function getSecretModel(Vault $vault, string $alias): Secret
     {
         $secret = $vault->secrets()->where('alias', $alias)->first();
 
@@ -39,6 +61,6 @@ class VaultService implements VaultServiceContract
             throw new VaultSecretNotExists($alias . ' not exists at ' . $vault->name);
         }
 
-        return $this->encrypter->decrypt($secret->value);
+        return $secret;
     }
 }

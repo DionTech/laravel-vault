@@ -27,7 +27,10 @@
         "laravel": {
             "providers": [
                 "DionTech\\Vault\\VaultServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Vault": "DionTech\\Vault\\Support\\Facades\\Vault"
+            }
         }
     }
 }
