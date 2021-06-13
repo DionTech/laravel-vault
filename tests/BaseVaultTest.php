@@ -4,16 +4,15 @@
 namespace DionTech\Vault\Tests;
 
 
-use App\Models\User;
+use DionTech\Vault\Support\Tests\User;
 use DionTech\Vault\Models\Secret;
 use DionTech\Vault\Models\Vault;
 use DionTech\Vault\Support\Contracts\VaultServiceContract;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
 
 class BaseVaultTest extends TestCase
 {
-    use DatabaseMigrations;
+    //use DatabaseMigrations;
 
     public function test_base_vault_with_secrets()
     {

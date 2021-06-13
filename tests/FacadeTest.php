@@ -7,7 +7,6 @@ namespace DionTech\Vault\Tests;
 use DionTech\Vault\Models\Vault as VaultModel;
 use DionTech\Vault\Support\Facades\Vault;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
 
 class FacadeTest extends TestCase
 {

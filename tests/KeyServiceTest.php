@@ -5,7 +5,6 @@ namespace DionTech\Vault\Tests;
 
 
 use DionTech\Vault\Support\Contracts\KeyServiceContract;
-use Tests\TestCase;
 
 class KeyServiceTest extends TestCase
 {
