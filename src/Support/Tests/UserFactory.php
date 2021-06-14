@@ -4,6 +4,7 @@
 namespace DionTech\Vault\Support\Tests;
 
 use Orchestra\Testbench\Factories\UserFactory as TestbenchUserFactory;
+use DionTech\Vault\Support\Tests\User;
 
 class UserFactory extends TestbenchUserFactory
 {
