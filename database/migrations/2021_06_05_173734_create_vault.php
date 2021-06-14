@@ -31,6 +31,6 @@ class CreateVault extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vault');
+        Schema::dropIfExists('vaults');
     }
 }

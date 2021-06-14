@@ -31,6 +31,6 @@ class CreateSecret extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secret');
+        Schema::dropIfExists('secrets');
     }
 }
