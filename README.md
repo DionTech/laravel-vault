@@ -1,3 +1,12 @@
+[![Latest Version](https://img.shields.io/packagist/v/diontech/laravel-vault?label=version)](https://packagist.org/packages/diontech/laravel-vault/)
+[![run-tests](https://github.com/DionTech/laravel-vault/actions/workflows/run_tests.yml/badge.svg)](https://github.com/DionTech/laravel-vault/actions/workflows/run_tests.yml)
+![GitHub last commit](https://img.shields.io/github/last-commit/diontech/laravel-vault)
+![GitHub issues](https://img.shields.io/github/issues-raw/diontech/laravel-vault)
+[![Packagist Downloads](https://img.shields.io/packagist/dm/diontech/laravel-vault.svg?label=packagist%20downloads)](https://packagist.org/packages/diontech/laravel-vault)
+[![License](https://img.shields.io/badge/license-mit-blue.svg)](https://github.com/diontech/laravel-vault/blob/main/LICENSE.md)
+![Twitter Follow](https://img.shields.io/twitter/follow/dion_tech?style=social)
+
+
 # about Vault
 
 With Vault, you can create vaults as application standalones or related to a model in your app, 
