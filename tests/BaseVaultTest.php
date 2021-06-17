@@ -82,7 +82,10 @@ class BaseVaultTest extends TestCase
 
     public function test_relation()
     {
-        $user = User::factory()->create();
+        $user = User::create([
+            'name' => 'Daniel Koch',
+            'email' => 'daniel.koch@diontech.de'
+        ]);
         $user->vaults()->create([
             'name' => 'personal'
         ]);

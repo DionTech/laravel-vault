@@ -11,7 +11,6 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use DionTech\Vault\Support\Tests\UserFactory;
 
 
 class User extends Model implements AuthorizableContract, AuthenticatableContract
@@ -21,11 +20,6 @@ class User extends Model implements AuthorizableContract, AuthenticatableContrac
     protected $guarded = [];
 
     protected $table = 'users';
-
-    protected static function newFactory()
-    {
-        return UserFactory::new();
-    }
 
     public function vaults()
     {
