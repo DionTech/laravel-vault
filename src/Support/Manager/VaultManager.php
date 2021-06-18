@@ -115,7 +115,7 @@ class VaultManager
             $params['model_type'] = get_class($this->context);
         }
 
-        $this->vault = Vault::create($params);
+        $this->vault = Vault::firstOrCreate($params);
 
         return $this;
     }
