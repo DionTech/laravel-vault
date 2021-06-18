@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-mit-blue.svg)](https://github.com/diontech/laravel-vault/blob/main/LICENSE.md)
 ![Twitter Follow](https://img.shields.io/twitter/follow/dion_tech?style=social)
 
-
+ 
 # about Vault
 
 With Vault, you can create vaults as application standalones or related to a model in your app, 
