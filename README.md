@@ -90,7 +90,7 @@ $user->vaults()->first()->overwrite("AN_API_KEY", "this-is-the-sensible-value-ov
 $user->vaults()->first()->get("AN_API_KEY");
 ```
 
-There are bow a few new options more now of how to write the code:
+There are now a few new options more now of how to write the code:
 
 ```php 
 Vault::open("a vault name")->add("facaded_secret", "simple value"); //will create the vault
@@ -98,8 +98,9 @@ Vault::open("a vault name")->add("facaded_secret", "simple value"); //will creat
 
 or when want a relational based vault:
 
-```
-$user = User::first(); Vault::setContext($user)->open("personal")->add('bad_password_storing_itself', '12345678'); //will create a vault in relation to the user
+```php 
+$user = User::first(); 
+Vault::setContext($user)->open("personal")->add('bad_password_storing_itself', '12345678'); //will create a vault in relation to the user
 ```
 
 So vaults are created or loaded (when already exists) when you only type a string.
