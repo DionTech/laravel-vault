@@ -58,6 +58,8 @@ $vault = \DionTech\Vault\Models\Vault::create([
 
 ```
 
+
+
 ```php
 //adding a vault using the polymorphic relation
 //at your model, add morphMany relation, for example at User:

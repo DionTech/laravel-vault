@@ -106,13 +106,21 @@ class VaultManager
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getVault()
+    {
+        return $this->vault;
+    }
+
     protected function createVault(string $vault): VaultManager
     {
         $params = ['name' => $vault];
 
         if ($this->context instanceof Model) {
-            $params['model_id'] = $this->context->model_id;
-            $params['model_type'] = get_class($this->context);
+            $params['vaultable_id'] = $this->context->id;
+            $params['vaultable_type'] = get_class($this->context);
         }
 
         $this->vault = Vault::firstOrCreate($params);
