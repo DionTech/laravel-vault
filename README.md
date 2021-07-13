@@ -3,8 +3,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/diontech/laravel-vault)
 ![GitHub issues](https://img.shields.io/github/issues-raw/diontech/laravel-vault)
 [![Packagist Downloads](https://img.shields.io/packagist/dm/diontech/laravel-vault.svg?label=packagist%20downloads)](https://packagist.org/packages/diontech/laravel-vault)
-[![License](https://img.shields.io/badge/license-mit-blue.svg)](https://github.com/diontech/laravel-vault/blob/main/LICENSE.md)
-![Twitter Follow](https://img.shields.io/twitter/follow/dion_tech?style=social)
+[![License](https://img.shields.io/badge/license-mit-blue.svg)](https://github.com/DionTech/laravel-vault/blob/main/LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/dion_tech?style=social)](https://twitter.com/dion_tech)
 
  
 # about Vault
