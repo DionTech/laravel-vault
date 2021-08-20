@@ -1,6 +1,6 @@
 {
     "name": "diontech/laravel-vault",
-    "description": "Building vaults and decrypted/encryped secrets. Using specfic keys per vault (or per secret if you want to) is implemented. Vaults can be a standalone or related to your app`s models.",
+    "description": "Building vaults and decrypted/encryped secrets. Using specific keys per vault (or per secret if you want to) is implemented. Vaults can be a standalone or related to your app`s models.",
     "authors": [
         {
             "name": "Daniel Koch",
