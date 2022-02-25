@@ -14,7 +14,7 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^1.9.1",
+        "orchestra/testbench": "^v7.1.0",
         "phpunit/phpunit": "^9.5.10",
         "mockery/mockery": "^1.4"
     },
