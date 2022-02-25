@@ -9,13 +9,13 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
-        "laravel/framework": "^8.0",
+        "php": "^8.0.2",
+        "laravel/framework": "^9.0",
         "ext-json": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.9|^5.8|^6.3",
-        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^v7.1.0",
+        "phpunit/phpunit": "^9.5.10",
         "mockery/mockery": "^1.4"
     },
     "autoload": {
