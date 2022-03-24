@@ -18,6 +18,11 @@ time he wants to have access to a secret. The way you will handle this is depend
 Vault will handle the key length internally and make sure, the length is 16 or 32, dependant to the cipher
 you will use (AES-128-CBC = 16, AES-256-CBC = 32). So you can choose the secret key you will want to.
 
+# releases / laravel support
+
+- laravel 8: v1.1.x
+- laravel 9: v1.2.x
+
 # installation
 
 ```shell
